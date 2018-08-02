@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume</title>
+    <style>
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #4ea09a;
+        }
+        .container {
+            background-color: #59604c;
+            padding: 10px;
+            height: 100px; /* Should be removed. Only for demonstration */
+        }
+        div {
+            border-radius: 5px;
+            background-color: #f0fff4;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Your Resume Goes Here!</h1>
+    </div>
+</div>
+<div>
+    <form action="#" th:action="@{/process}" th:object="${resume}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <h4>Personal Info</h4>
+        Name: <input type="text" th:field="*{name}" />
+        <span th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}"></span><br/>
+        Email: <input type="text" th:field="*{email}" />
+        <span th:if="${#fields.hasErrors('email')}"
+              th:errors="*{email}"></span><br/>
+        <h4>Education</h4>
+        Degree: <input type="text" th:field="*{degree}" />
+        <span th:if="${#fields.hasErrors('degree')}"
+              th:errors="*{degree}"></span><br/>
+        Major: <input type="text" th:field="*{major}" />
+        <span th:if="${#fields.hasErrors('major')}"
+              th:errors="*{major}"></span><br/>
+        University: <input type="text" th:field="*{university}" />
+        <span th:if="${#fields.hasErrors('university')}"
+              th:errors="*{university}"></span><br/>
+        Graduation Year: <input type="text" th:field="*{year}" />
+        <span th:if="${#fields.hasErrors('year')}"
+              th:errors="*{year}"></span><br/>
+        <h4>Experience</h4>
+        Job: <input type="text" th:field="*{job}" />
+        <span th:if="${#fields.hasErrors('job')}"
+              th:errors="*{job}"></span><br/>
+        Company: <input type="text" th:field="*{company}" />
+        <span th:if="${#fields.hasErrors('company')}"
+              th:errors="*{company}"></span><br/>
+        Start Date: <input type="date" th:field="*{startDate}" />
+        <span th:if="${#fields.hasErrors('startDate')}"
+              th:errors="*{startDate}"></span><br/>
+        End Date: <input type="date" th:field="*{endDate}" />
+        <span th:if="${#fields.hasErrors('endDate')}"
+              th:errors="*{endDate}"></span><br/>
+       Job Description: <textarea rows="3" th:field="*{duty}"/>
+        <span th:if="${#fields.hasErrors('duty')}"
+              th:errors="*{duty}"></span><br/>
+        <h4>Skills</h4>
+        Skill Name: <input type="text" th:field="*{skillName}"/>
+        <span th:if="${#fields.hasErrors('skillName')}"
+              th:errors="*{skillName}"></span><br/>
+        Rating: <input type="text" th:field="*{skillRating}" />
+        <span th:if="${#fields.hasErrors('skillRating')}"
+              th:errors="*{skillRating}"></span><br/>
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+</body>
+</html>

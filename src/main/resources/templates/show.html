@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            margin: 2px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* Style the top navigation bar */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+        /* Style the topnav links */
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+        }
+        /* Change color on hover */
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div class="topnav"><a href="/"><br><h2>Show all Resumes</h2></br></a></div>
+<h3>Personal Info</h3>
+Name: <span th:text="${resume.name}"></span><br/>
+Email: <span th:text="${resume.email}"></span><br/>
+<h3>Education</h3>
+Degree: <span th:text="${resume.degree}"></span><br/>
+Major: <span th:text="${resume.major}"></span><br/>
+University: <span th:text="${resume.university}"></span><br/>
+Year: <span th:text="${resume.year}"></span><br/>
+<h3> Experience</h3>
+Job: <span th:text="${resume.job}"></span><br/>
+Company: <span th:text="${resume.company}"></span><br/>
+Start Date: <span th:text="${#dates.format(resume.startDate,'dd MMM yyyy')}"></span> -
+End Date: <span th:text="${#dates.format(resume.endDate,'dd MMM yyyy')}"></span><br/>
+Job Description: <span th:text="${resume.duty}"></span><br/>
+<h3>Skills</h3>
+Skills : <span th:text="${resume.skillName}"></span><br/>
+Proficiency Level: <span th:text="${resume.skillRating}"></span><br/>
+
+</body>
+</html>
